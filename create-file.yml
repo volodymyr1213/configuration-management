@@ -1,7 +1,7 @@
 ---
 - name: Create files older than 90 days
-  host: all
+  hosts: all
   tasks:
     - name: Create files
       shell: "touch -d 20180501 /tmp/file{1..5}"
-      when: ansible_distribution == "Centos"        
+      when: ansible_distribution == "CentOS"        
