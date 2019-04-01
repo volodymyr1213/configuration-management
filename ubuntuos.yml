@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: latest
+      when: ansible_distribution == 'Ubuntu'
+
+
+    - name: restart apache2
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+      when: ansible_distribution == 'Ubuntu'
+~
