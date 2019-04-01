@@ -5,7 +5,7 @@
   tasks:
   - name: Install packages
     apt: 
-      name: {{ item }} 
+      name: "{{ item }}" 
       state: latest
     with_items:
      - python-pip
