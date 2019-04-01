@@ -7,7 +7,7 @@
           name: "{{ item }}"
           path: /etc/foo.conf
           state: touch
-          access_time: 20180501
+          access_time: 201805010923.15
         loop:
            - shermat
            - toshmat
