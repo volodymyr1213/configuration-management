@@ -6,5 +6,5 @@
       file:
         path: /tmp/file{1..5}
         state: touch
-        access_time: 20180501
-      when: ansible_distribution == "CentOs"
+        access_time: 2018050123.15
+              when: ansible_distribution == "CentOs"
