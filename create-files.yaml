@@ -5,9 +5,9 @@
       - name: Create files
         file: 
           name: "{{ item }}"
-          path: /etc/foo.conf
+          path: /tmp/{{ item('pipe', 'date +20180511-1212')}}
           state: touch
-          access_time: 201805010923.15
+         # access_time: 201805010923.15
         loop:
            - shermat
            - toshmat
