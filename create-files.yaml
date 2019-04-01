@@ -5,9 +5,10 @@
       - name: Create files
         file: 
           name: "{{ item }}"
-          path: /tmp/{{ item('pipe', 'date +20180511-1212')}}
+         # path: /tmp/{{ item('pipe', 'date +20180511-1212')}}
           state: touch
          # access_time: 201805010923.15
+      - set_fact: mydate="{{lookup('pipe','date +20180511-1212')}}"
         loop:
            - shermat
            - toshmat
