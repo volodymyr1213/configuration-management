@@ -2,6 +2,6 @@
 - hosts: all
   tasks:
   - name: install vim
-    packages:
-     name: vim
-     state: present
+    package: 
+       name: vim
+       state: present
