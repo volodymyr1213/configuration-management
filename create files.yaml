@@ -1,0 +1,10 @@
+---
+  - name: Create files older than 90 days
+    hosts: all
+    tasks:
+      - name: Create files
+        file:
+          path: /tmp/file{1..5}
+          state: touch
+          access_time: 20180501create
+        when: ansible_distribution== "CentOS"
