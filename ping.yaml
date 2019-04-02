@@ -2,7 +2,7 @@
 - name: Ping Hosts
   hosts: all
   become: yes
-  become_methos: sudo
+  become_method: sudo
   tasks:
     - name: Ping Hosts
       ping:
