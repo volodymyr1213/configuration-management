@@ -19,7 +19,7 @@
       ignore_errors: yes 
 
     - name: Download wordpress
-      when: ansible_distribution == 'Centos7'
+      when: ansible_distribution == 'Centos'
       get_url:
         url: https://wordpress.org/latest.tar.gz 
         dest: /tmp/
