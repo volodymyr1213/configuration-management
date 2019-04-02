@@ -5,7 +5,7 @@
   become_method: sudo 
   tasks:
   - name: Install packages
-    when: ansible_os_family == "Ubuntu"
+    when: ansible_os_family == 'Ubuntu'
     apt: 
       name: ['python-pip', 'git', 'apache2' , 'tree'] 
       state: latest
