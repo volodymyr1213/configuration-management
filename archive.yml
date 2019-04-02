@@ -1,0 +1,17 @@
+---
+- name: create a compressed archive of files that are older than 90 days
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: find files older than 90 days
+      find:
+        paths: /tmp
+        age: 90d
+        recurse: yes
+      register: found
+    - name: create a compressed archive of files found above
+      archive:
+        path: "{{found.files|map(attribute='path')|list}}"
+        format: gz
+        dest: "/tmp/file{{ansible_date_time.date}}.over90days.tgz"
