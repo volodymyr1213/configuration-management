@@ -29,7 +29,7 @@
 
     - name: Unzip wordpress
       unarchive:
-        src: /tmp/wordpress-4.9.8.tar.gz
+        src: /tmp/wordpress-5.0.1.tar.gz
         dest: /var/www/html/
         remote_src: yes
 
