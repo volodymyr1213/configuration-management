@@ -1,0 +1,11 @@
+---
+- name: install nginx webserver on ubuntu os
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: nginx installation on ubuntu host
+      apt: 
+        name=nginx 
+        state=present
+      when: ansible_distribution == "Ubuntu"
