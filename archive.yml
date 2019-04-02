@@ -1,5 +1,5 @@
 ---
-- name: create a compressed archive of files that are older than 90 days, create a compressed archive of files that are over 2GB
+- name: create a compressed archive of files that are older than 90 days
   hosts: all
   become: yes
   become_method: sudo
