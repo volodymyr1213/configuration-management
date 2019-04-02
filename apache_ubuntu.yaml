@@ -1,11 +1,11 @@
 ---
  - name: Intall Apache on Ubuntu
  - hosts: all
-   become_method: yes
+   become: yes
+   become_method: sudo
    tasks:
       - name: Install apache
         apt:
           name: apache2
           state: present
         when: ansible_distribution == "Ubuntu"
-            
