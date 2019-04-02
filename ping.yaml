@@ -1,3 +1,4 @@
 ---
 - name: hello
   hosts: localhost
+  become: sudo
