@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: win-server
   gather_facts: no
   tasks:
     - name: Checking connection to {{ inventory_hostname }}
