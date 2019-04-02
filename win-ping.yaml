@@ -1,0 +1,6 @@
+---
+- name: ping win machines
+  hosts: all
+  tasks:
+    - name: ping win machines
+      win_ping:
