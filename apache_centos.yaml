@@ -8,4 +8,4 @@
       apt:
         name: apache2
         state: present
-      when: ansible_distribution == "Centos"
+      when: ansible_distribution == "CentOS"
