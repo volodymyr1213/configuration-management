@@ -8,5 +8,6 @@
     apt: 
       name: ['python-pip', 'git', 'apache2' , 'tree'] 
       state: latest
+    when: ansible_distribution == 'Ubuntu'
     ignore_errors: yes
-    when: ansible_distribution == 'Ubuntu' 
+     
