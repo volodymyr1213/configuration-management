@@ -1,4 +1,8 @@
 ---
-- name: hello
-  hosts: localhost
-  become: sudo
+- name: Ping Hosts
+  hosts: all
+  become: yes
+  become_methos: sudo
+  tasks:
+    - name: Ping Hosts
+      ping:
