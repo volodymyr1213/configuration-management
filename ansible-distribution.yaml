@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  any_errors_fatal: True
+  ignore_unreachable: true
   become: true
   become_method: sudo 
   tasks:
