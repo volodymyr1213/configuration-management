@@ -10,31 +10,31 @@
       state: absent 
       remove: yes
 
-- name: Add the user 'ansible'
-  user:
-    name: ansible
-    create_home: true
-    shell: /bin/bash
-    uid: 2222
-    generate_ssh_key: true
-    ssh_key_bits: 2048
-    state: present 
-    register: new_user_key
-- debug: msg="{{ new_user_key.ssh_public_key }}"
+  - name: Add the user 'ansible'
+    user:
+      name: ansible
+      create_home: true
+      shell: /bin/bash
+      uid: 2222
+      generate_ssh_key: true
+      ssh_key_bits: 2048
+      state: present 
+      register: new_user_key
+  - debug: msg="{{ new_user_key.ssh_public_key }}"
 
-- name: Fetch the keyfile from the node to master
-  tags: run
-  fetch: 
-    src: "~/.ssh/id_rsa.pub"
-    dest: "buffer/{{ansible_hostname}}-id_rsa.pub"
-    flat: yes
+  - name: Fetch the keyfile from the node to master
+    tags: run
+    fetch: 
+      src: "~/.ssh/id_rsa.pub"
+      dest: "buffer/{{ansible_hostname}}-id_rsa.pub"
+      flat: yes
 
-- name: Copy the key add to authorized_keys using Ansible module
-  tags: runcd
-  authorized_key:
-    user: ansible
-    state: present
-    key: "{{ lookup('file','buffer/{{item}}-id_rsa.pub')}}"
-  when: "{{ item != ansible_hostname }}"
-  with_items: 
-    - "{{ groups['multi'] }}"       
+  - name: Copy the key add to authorized_keys using Ansible module
+    tags: runcd
+    authorized_key:
+      user: ansible
+      state: present
+      key: "{{ lookup('file','buffer/{{item}}-id_rsa.pub')}}"
+    when: "{{ item != ansible_hostname }}"
+    with_items: 
+      - "{{ groups['multi'] }}"       
