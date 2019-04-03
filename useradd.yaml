@@ -1,6 +1,6 @@
 ---
 - name: add user and generate key, print public key
-  hosts: any
+  hosts: 52.209.95.130
   become: yes
   become_method: sudo
   tasks:
