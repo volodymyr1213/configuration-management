@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
+  become: yes
+  become_method: sudo
   tasks: 
     - name: Update route53
       route53:
