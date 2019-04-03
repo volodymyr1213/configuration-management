@@ -7,11 +7,13 @@
 
 * archive2GB.yaml       --> find and zip files that are over 2GB (Linux Machines)
 
-NOTE: If you created and installed instances recently for AWX project, so then you will not have file that 90 days older, over or 2GB. To able to run this playbooks and check if they are working, run below playbook:
+# NOTE: 
+- If you created and installed instances recently for AWX project, so then you will not have file that 90 days older, over or 2GB. To able to run this playbooks and check if they are working, run below playbook:
 
 * createfiles.yaml      --> this playbook will create files that are bigger than 2GB. 
 
-NOTE: After testing all playbooks make sure you run deletefiles.yaml that will delete your files created by another playbook. 
+# NOTE: 
+- After testing all playbooks make sure you run deletefiles.yaml that will delete your files created by another playbook. 
 
 
                     ### END  ####
