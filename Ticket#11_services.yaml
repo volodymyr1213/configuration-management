@@ -1,5 +1,5 @@
 ---
 - name: Start, stop, restart services
   systemd:
-  name: "{{ service }}"
-  state: "{{ state }}"
+    name: "{{ service }}"
+    state: "{{ state }}"
