@@ -1,6 +1,6 @@
 ---
 - name: add user and generate key, print public key
-  hosts: "bastion_host"
+  hosts: any
   become: yes
   become_method: sudo
   tasks:
