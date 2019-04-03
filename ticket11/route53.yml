@@ -11,9 +11,9 @@
   tasks: 
     - name: add or delete entries in Amazons Route53 DNS service
       route53:
-        state: "{{state}}"
+        state: present
         zone: "{{zone}}"
         record: "{{record}}"
-        type: "{{type}}"
-        ttl: "{{ttl}}"
-        value: "{{value}}"
+        type: A
+        ttl: 60
+        value: "{{}}"
