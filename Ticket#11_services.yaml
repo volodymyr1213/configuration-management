@@ -1,3 +1,7 @@
+# Please specify following variables when prompted during lounch 
+# hosts: one of your instance public IP-Address from AWS
+# service: Service name (Example: httpd, network,...)
+# state: restarted, started, stopped, restarted 
 ---
 - name: Manage service 
   hosts: "{{host}}"
