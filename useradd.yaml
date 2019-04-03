@@ -1,6 +1,6 @@
 ---
 - name: add user and generate key, print public key
-  hosts: 52.209.95.130
+  hosts: localhost
   become: yes
   become_method: sudo
   tasks:
@@ -12,9 +12,9 @@
 
   - name: Create user
     user: name=user shell=/bin/bash home=/srv/user groups=admin,sudo generate_ssh_key=yes ssh_key_bits=2048
-  - name: Set password to user
-    shell: echo user:plain_text_password | sudo chpasswd
-    no_log: True
+      name: Set password to user
+      shell: echo user:plain_text_password | sudo chpasswd
+      no_log: True
       state: present 
       register: new_user_key
   - debug: msg="{{ new_user_key.ssh_public_key }}"
