@@ -1,5 +1,7 @@
 ---
-  hosts: "{{ host }}"
+  hosts: localhost
+  become: yes
+  become_method: sudo
   service:
     name: "{{ service }}"
     state: "{{ state }}"
