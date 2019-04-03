@@ -4,6 +4,7 @@
   become_method: sudo
   tasks:
      - name: Install multiple packages
+       when: ansible_distribution == "Ubuntu" 
        apt:
          name: "{{ item }}"
          state: present
@@ -14,4 +15,3 @@
         - vsftpd
         - httpd
         - vim
-  when: ansible_distribution == "Ubuntu" 
