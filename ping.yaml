@@ -1,5 +1,5 @@
 ---
-- hosts: "{{centOS}}"
+- hosts: centOS
   become: yes
   become_method: sudo
   tasks:
