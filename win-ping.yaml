@@ -1,6 +1,6 @@
 ---
-- name: ping win machines
-  hosts: all
+- name: ping the user specified hosts
+  hosts: "{{host}}"
   tasks:
     - name: ping win machines
       win_ping:

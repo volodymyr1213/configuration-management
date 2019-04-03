@@ -1,0 +1,16 @@
+# Please specify the following variables when prompted while launching the template   
+# distribution: Ubuntu | Debian | CentOS | etc
+# majorversion: 16 | 9 | 7 | etc
+# package: any package name
+# state: prent | absent
+---
+- name: Manage the user specicfied package 
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks: 
+    - name: install or delete the given package
+      package:
+        name: "{{package}}"
+        state: "{{state}}"
+      when: (ansible_distribution == distribution|string and ansible_distribution_major_version == majorversion|string)

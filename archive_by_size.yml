@@ -1,0 +1,21 @@
+# Please specify the following variables when prompted while launching the template   
+# source_folder: search for the files inside this folder, absolute path
+# dest_folder: destination folder for the archive to be saved
+# size: size of files
+---
+- name: create a compressed archive of files in a specific folder that are larger than the given size and save it inside a given folder
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: find files larger than the given size
+      find:
+        paths: "{{source_folder}}"
+        size: "{{size}}"
+        recurse: yes
+      register: found
+    - name: create a compressed archive of files found above
+      archive:
+        path: "{{found.files|map(attribute='path')|list}}"
+        format: gz
+        dest: "{{dest_folder}}/{{size}}.tgz"
