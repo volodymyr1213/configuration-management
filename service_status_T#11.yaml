@@ -1,5 +1,6 @@
 ---
 - name: Make sure a service is running
+  hosts: all
   systemd:
     name: httpd
     state: started
@@ -23,7 +24,7 @@
    systemd:
      name: httpd
      enabled: yes
-         
+
       
     
       
