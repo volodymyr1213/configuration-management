@@ -1,0 +1,7 @@
+---
+- name: Make sure a service is running
+  systemd:
+    name: httpd
+    state: started
+
+- name:     

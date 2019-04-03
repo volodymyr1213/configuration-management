@@ -1,0 +1,26 @@
+---
+- name: Start service httpd
+  hosts: all
+  service:
+    name: httpd
+    state: started
+
+- name: Stop services httpd
+  service: 
+    name: httpd
+    state: stopped
+
+- name: Restart service httpd
+  service:
+    name: httpd
+    state: retarted     
+
+- name: Reload service httpd
+  service: 
+    name: httpd
+    state: reloaded
+
+- name: Enable service httpd
+  service:
+    name: httpd
+    enabled: yes         
