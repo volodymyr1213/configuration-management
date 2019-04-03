@@ -1,5 +1,6 @@
 ---
 - name: services 
+  hosts: "{{ host }}"
   systemd:
     name: "{{ service }}"
-    state: "{{ state }}""
+    state: "{{ state }}"
