@@ -2,9 +2,10 @@
 ---
 - name: Install wordpress on CentOS 7 
   gather_facts: no 
-  hosts: all       
+  hosts: "{{host}}"       
   tasks: 
     - name: Install httpd
+      when: ('ansible_distribution == "Centos" and ansible_distribution_major_version == "7"')
       package: 
         name: "{{ item }}"
         state: latest
@@ -25,20 +26,24 @@
         dest: /tmp/
 
     - name: Unzip wordpress
+      when: ('ansible_distribution == "Centos" and ansible_distribution_major_version == "7"')
       unarchive: 
         src: /tmp/wordpress-5.1.1.tar.gz
         dest: /var/www/html/
         remote_src: yes 
 
     - name: move files
+      when: ('ansible_distribution == "Centos" and ansible_distribution_major_version == "7"')
       shell: "mv /var/www/html/wordpress/*  /var/www/html/"
       ignore_errors: yes 
 
-    - name: Move index.html 
+    - name: Move index.html
+      when: ('ansible_distribution == "Centos" and ansible_distribution_major_version == "7"')
       shell: "mv /var/www/html/index.html /tmp/"
       ignore_errors: true
 
-    - name: run apache 
+    - name: run apache
+      when: ('ansible_distribution == "Centos" and ansible_distribution_major_version == "7"')
       systemd: 
         name: httpd 
         state: restarted 
