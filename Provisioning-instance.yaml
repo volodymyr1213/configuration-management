@@ -4,8 +4,8 @@
     tasks:
       - name: Provision CentOS 7
         ec2:
-          aws_region: eu-west-1
-          key_name: awx-server
+          aws_region: eu-central-1
+          key_name: awx
           instance_type: t2.micro
           image: ami-0ff760d16d9497662
           wait: yes
@@ -16,7 +16,7 @@
         
       - name: Provision Ubuntu 16.04 LTS
         ec2:
-          aws_region: eu-west-1
+          aws_region: eu-central-1
           key_name: awx-server
           instance_type: t2.micro
           image: ami-00182431c78dff2fa
@@ -29,6 +29,6 @@
           vpc_subnet_id: subnet-b73c48ff
           assign_public_ip: yes
                 
-     
+    
 
-     
+      
