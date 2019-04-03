@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  become: yes
+  become_method: sudo 
+  tasks:
+    - name: Ping
+      ping:
+      tags:
+        - check
+        
+    - name: Install
+      package: 
+        name: telnet
+        state: latest
+      tags:
+        - install

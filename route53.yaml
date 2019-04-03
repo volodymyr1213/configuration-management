@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  tasks: 
+    - name: Update route53
+      route53:
+        state: present
+        zone: foo.com
+        record: "{{ rec.set.record }}"
+        ttl: "{{ rec.set.ttl }}"
+        type: "{{ rec.set.type }}"
+        value: "{{ rec.set.value }}"
+      tags:
+        - name: add
