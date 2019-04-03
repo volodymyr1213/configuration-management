@@ -3,15 +3,15 @@
   become: yes
   become_method: sudo
   tasks:
-     - name: Install multiple packages
-       when: ansible_distribution == "Ubuntu" 
-       apt:
-         name: "{{ item }}"
-         state: present
-       with_items:
-        - lftp
-        - telnet
-        - ftp
-        - vsftpd
-        - httpd
-        - vim
+    - name: Install multiple packages
+      when: ansible_distribution == "Ubuntu" 
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+       - lftp
+       - telnet
+       - ftp
+       - vsftpd
+       - httpd
+       - vim
