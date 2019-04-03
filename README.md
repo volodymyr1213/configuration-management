@@ -62,7 +62,7 @@ I will be using 5 servers:
       project_data_dir=/var/lib/awx/projects 
 - >> ansible-playbook -i inventory install.yml -vv 
 - >> docker container ls
-  # P.S. https://www.howtoforge.com/tutorial/centos-ansible-awx-installation/
+  # P.S. https://www.howtoforge.com/tutorial/centos-ansible-awx-installation/ (this website should be helpful)
 
 
   # THEN
