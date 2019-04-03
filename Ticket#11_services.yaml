@@ -1,7 +1,10 @@
 ---
-- hosts: "{{ host }}"
+- name: Manage service 
+  hosts: all
   become: yes
   become_method: sudo
+  tasks: 
+    - name: Set the service 
   systemd:
     name: "{{ service }}"
     state: "{{ state }}"
