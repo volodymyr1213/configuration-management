@@ -1,0 +1,30 @@
+name---
+- name: Make sure a service is running
+  hosts: all
+  systemd:
+    name: httpd
+    state: started
+
+- name: Stop service, if running 
+  systemd:
+    name: httpd
+    state: stopped
+
+- name: Restart service httpd
+  systemd:
+    name: httpd
+    state: restarted
+
+ - name: reload service httpd   
+   systemd:
+     name: httpd
+     state: reloaded
+
+ - name: Enable httpd 
+   systemd:
+     name: httpd
+     enabled: yes
+
+      
+    
+      
