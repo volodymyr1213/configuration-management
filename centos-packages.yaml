@@ -1,0 +1,16 @@
+---
+- name: Install telnet
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: install tree on Ubuntu and Debian
+      apt:
+        name: telnet
+        state: present
+      when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+    - name: install telnet on centos
+      yum:
+        name: telnet
+        state: present
+      when: ansible_distribution == "CentOS"
