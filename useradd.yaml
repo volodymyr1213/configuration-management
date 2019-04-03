@@ -15,10 +15,10 @@
 
 - name: Set password to user
   shell: echo user:plain_text_password | sudo chpasswd
-  no_log: True
-      state: present 
-      register: new_user_key
-  - debug: msg="{{ new_user_key.ssh_public_key }}"
+  no_log: True  
+    state: present 
+    register: new_user_key
+- debug: msg="{{ new_user_key.ssh_public_key }}"
 
   - name: Fetch the keyfile from the node to master
     tags: run
