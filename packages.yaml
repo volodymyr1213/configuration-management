@@ -5,7 +5,7 @@
   tasks:
     - name: Install multiple packages
       when: ansible_distribution == "Ubuntu" 
-      apt:
+      package:
         name: "{{ item }}"
         state: present
       with_items:
