@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Download wordpress
+      get_url:
+        url: https://wordpress.org/latest.tar.gz
+        dest: /tmp
+    - name: Unarchive wordpress
+      unarchive:
+        src: /tmp/wordpress-5.1.1.tar.gz
+        dest: /tmp
+        remote_src: true
