@@ -2,6 +2,6 @@
 - hosts: localhost
   become: yes
   become_method: sudo
-  service:
+  systemd:
     name: "{{ service }}"
     state: "{{ state }}"
