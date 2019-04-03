@@ -16,6 +16,8 @@
 ###             How to install Ansible AWX 
 
 I will be using 5 servers:  
+
+
             1.instance for Ansible AWX
 
             2. CentOS 7 
