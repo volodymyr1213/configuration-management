@@ -26,7 +26,7 @@ I will be using 5 servers:
 
             4. Debian8/9 
 
-                        with  minimal installation and SELinux in permissive mode.
+              - with  minimal installation and SELinux in permissive mode.
 
 
 
