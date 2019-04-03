@@ -1,0 +1,25 @@
+---
+- name: add user and generate key, print public key
+  hosts: "bastion_host"
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: Remove the user 'ansible'
+    user: 
+      name: ansible 
+      state: absent 
+      remove: yes
+
+- name: Add the user 'ansible'
+  user:
+    name: ansible
+    create_home: true
+    shell: /bin/bash
+    uid: 2222
+    generate_ssh_key: true
+    ssh_key_bits: 2048
+    state: present 
+    register: new_user_key
+- debug: msg="{{ new_user_key.ssh_public_key }}"
+
+- name: Copy SSH key to Remote mashine
