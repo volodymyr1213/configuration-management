@@ -1,0 +1,8 @@
+---
+- name: delete huge-giant files
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: delete huge files in /tmp
+      shell: rm -rf /tmp/file*

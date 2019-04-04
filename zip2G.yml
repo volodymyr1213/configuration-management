@@ -1,0 +1,17 @@
+---
+- name: find in /tmp huge files
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: finding files that are larger than 2GB
+      find:
+        paths: /tmp
+        size: 2g
+        recurse: yes
+      register: huge
+    - name: Compress files
+      archive:
+        path: "{{huge.files|map(attribute='path')|list}}"
+        format: gz
+        dest: "/tmp/file{{ansible_date_time.date}}.large_files.tgz"
