@@ -3,15 +3,19 @@
   become: yes
   become_method: sudo
   tasks:
-    - name: vim installation on all linux distributions
-      apt:
-        name=vim
-        state=present
-    - name: tree instalation on all linux distributions
-      apt:
-        name=tree
-        state=present
-    - name: telnet installation on all linux distributions
-      apt:
-        name=telnet
-        state=present
+  - name: Install a list of packages on centos
+    yum:
+      name:
+        - vim 
+        - tree 
+        - telnet 
+      state: present
+    when: ansible_distribution == 'CentOS7'
+  - name: Install a list of packages on debian and ubuntu
+    apt:
+      name:
+        - tree 
+        - vim 
+        - telnet 
+      state: present
+    when: ansible_distribution == 'Debian9' and ansible_distribution == 'Ubuntu16'
