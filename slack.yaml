@@ -1,0 +1,9 @@
+---
+- name: Send message to slack 
+  slack:
+    token: xoxp-513590361602-513485800931-599870724548-c28a2703793b7b24874e423d0aa49c79
+    channel: "#ops"
+    domain: "evolvecber.org"
+    parse: "full"
+    color: "good"
+    msg: "Kernel update"

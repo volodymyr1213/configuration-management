@@ -1,0 +1,13 @@
+---
+- name: Search for user that are not active for 90 days
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks: 
+    - name: find user older then 90 days
+      find: 
+        path: /etc/passwd
+        age: 90d
+
+ - name: Delete user
+           
