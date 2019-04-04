@@ -6,6 +6,7 @@
   register: files
   #failed_when: files.matched < 10
 
+
 - name: Remove previous tarFile
   file: 
     path: /tmp/test.tar.gz
