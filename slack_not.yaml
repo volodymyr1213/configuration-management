@@ -1,0 +1,14 @@
+ ---
+- name: Test Slack
+  hosts: all
+
+  vars:
+    - slack_domain: evolvecyber.slack.com
+    - slack_token: https://hooks.slack.com/services/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
+  tasks:
+- name: send message to slack
+    local_action:
+      module: slack
+      domain: "{{ slack_domain }}"
+      token: "{{ slack_token }}"
+      msg: "This is test"
