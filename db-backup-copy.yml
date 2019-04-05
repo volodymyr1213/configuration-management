@@ -6,10 +6,14 @@
       - name: Send the file to Backup-Server
         shell: "scp /tmp/db*.tar.gz {{ backuphost }}:/{{ backupfolder }}/" #backuphost and backupfolder
         listen: "start backup"
+        notify: "remove archived file"
 
+      - name: Remove
+        file:
+          path: /tmp/
     tasks:
       - name: Ping
-        ping:
+        ping: 
 
       - name: Archive the DB
         archive:
