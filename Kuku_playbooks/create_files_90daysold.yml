@@ -1,0 +1,8 @@
+---
+- name: create files larger than 2G
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: create five files with a custom date
+      shell: touch -d 20180501  /tmp/file{1..5}

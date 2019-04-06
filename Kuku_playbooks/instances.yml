@@ -1,0 +1,84 @@
+---
+- name: Provision EC2 Instance
+  hosts: localhost
+  tasks:
+    - name: EC2 Security Group
+      ec2_group:
+        name: ansible-tower
+        description: ansible-tower security group
+        vpc_id: vpc-da9c97b2
+        region: us-east-2
+        rules:   #hints from Ahmad PROFS
+          - proto: tcp
+            ports:
+            - 22
+            - 80
+            - 3389
+            cidr_ip: 0.0.0.0/0
+
+
+- name: Provision Centos7
+  hosts: localhost
+  tasks:
+    - name: Launch CentOS7
+      ec2:
+        aws_region: us-east-2
+        image: ami-0f2b4fc905b0bd1f1
+        instance_type: t2.micro
+        instance_tags:
+          Name: CentOS7
+        count: 1
+        wait: yes
+        vpc_subnet_id: subnet-410c643b
+        assign_public_ip: yes
+        key_name: mykey
+
+
+
+    - name: Launch Ubuntu-16.04
+      ec2:
+        aws_region: us-east-2
+        image: ami-0653e888ec96eab9b
+        instance_type: t2.micro
+        instance_tags:
+          Name: Ubuntu-16.04
+        count: 1
+        wait: yes
+        vpc_subnet_id: subnet-410c643b
+        assign_public_ip: yes
+        user_data: |
+                   #!/bin/sh
+                   sudo apt-get install python -y
+        key_name: mykey
+
+
+
+    - name: Launch Debian GNU-Linux 9
+      ec2:
+        aws_region: us-east-2
+        image: ami-05829248ffee66250
+        instance_type: t2.micro
+        instance_tags:
+          Name: Debian GNU-Linux 9
+        count: 1
+        wait: yes
+        vpc_subnet_id: subnet-1626f65a
+        assign_public_ip: yes
+        user_data: |
+                   #!/bin/sh
+                   sudo apt-get install python -y
+        key_name: mykey
+
+
+    - name: Launch Windows 2016
+      ec2:
+        aws_region: us-east-2
+        image: ami-04be6a27b0206807f
+        instance_type: t2.micro
+        instance_tags:
+          Name: Windows-2016
+        count: 1
+        wait: yes
+        vpc_subnet_id: subnet-1626f65a
+        assign_public_ip: yes
+        key_name: mykey
