@@ -1,9 +1,0 @@
-# Please specify the following variables when prompted while launching the template   
-# host: localhost | all | ip_address
----
-- name: ping the user specified hosts
-  hosts: "{{host}}"
-  become: yes
-  become_method: sudo
-  tasks:
-      ping: 
