@@ -1,12 +1,6 @@
 ---
   - name: Backup MySQL-DB to Remote Backup-Server
-    hosts: "{{ dbhost }}"  #DB IP
-
-    handlers:
-      - name: Send the file to Backup-Server
-        shell: "scp /tmp/db*.tar.gz {{ backuphost }}:/{{ backupfolder }}/" #backuphost and backupfolder
-        listen: "start backup"
-        
+    hosts: "{{ dbhost }}"  #DB IP       
     tasks:
       - name: Ping
         ping:
@@ -16,3 +10,8 @@
           path: "/var/lib/mysql/{{ dbname }}"  #DB name
           dest: /tmp/db{{ansible_date_time.date}}.tar.gz
         notify: "start backup"
+
+    handlers:
+      - name: Send the file to Backup-Server
+        shell: "scp /tmp/db*.tar.gz {{ backuphost }}:/{{ backupfolder }}/" #backuphost and backupfolder
+        listen: "start backup"
