@@ -1,9 +1,0 @@
----
-- hosts: all
-  become: yes
-  become_method: sudo
-  tasks:
-    - name: install the latest version of tlnet
-      yum:
-        name: telnet
-        state: latest
