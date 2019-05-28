@@ -1,13 +1,13 @@
 ---
-- name:
-  hosts: "{{hostname}}"
+- name: patching kernel 
+  hosts: all
   become: yes
   become_method: sudo
   tasks:
-  - name: confirm kernel version
-    shell: uname -a
-    register: kernel_version
-  - debug: var=kernel_version.stdout
+   - name: confirm kernel version
+     shell: uname -a
+     register: kernel_version
+   - debug: var=kernel_version.stdout
 
   - name: Add repository
     yum_repository:
